@@ -73,13 +73,14 @@ public class TestaResolveEquacoes {
 		double b[] = {1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0};
 		
 		int escolha = 0;
-		while (escolha != 4) {
+		while (escolha != 5) {
 			System.out
 					.println("Por favor, escolha uma das funções abaixo de acordo com o número correspondente:");
 			System.out.println("1: Eliminação de Gauss");
-			System.out.println("2: Fatoração LU");
-			System.out.println("3: Fatoração de Cholesky");
-			System.out.println("4: Sair");
+			System.out.println("2: Eliminação de Gauss-Jordan");
+			System.out.println("3: Fatoração LU");
+			System.out.println("4: Fatoração de Cholesky");
+			System.out.println("5: Sair");
 
 			BufferedReader reader = new BufferedReader(new InputStreamReader(
 					System.in));
@@ -102,6 +103,22 @@ public class TestaResolveEquacoes {
 
 				}
 				if (escolha == 2) {
+
+					System.out.println("Eliminação de Gauss-Jordan ");
+					System.out.println();
+					System.out.println("Matriz A" + "\r\n");
+					imprimirMatriz(a);
+					System.out.println();
+					System.out.println("Conjunto Solução" + "\r\n");
+					imprimirVetor(b);
+					System.out.println();
+					double[] X = ResolveEquacoes.gaussJordan(a, b);
+					imprimirResultados(X);
+					System.out.println();
+					System.out.println();
+
+				}
+				if (escolha == 3) {
 					System.out.println("Fatoração LU");
 					System.out.println();
 					System.out.println("Matriz A" + "\r\n");
@@ -116,7 +133,7 @@ public class TestaResolveEquacoes {
 					System.out.println();
 
 				}
-				if (escolha == 3) {
+				if (escolha == 4) {
 					// Cholesky
 					System.out.println("Fatoração de Cholesky");
 					System.out.println();
