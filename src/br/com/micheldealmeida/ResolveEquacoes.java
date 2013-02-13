@@ -158,7 +158,7 @@ public class ResolveEquacoes {
 		return g;
 	}
 
-	public static void gaussJordan(double a[][], double b[]) {
+	public static double[] gaussJordan(double a[][], double b[]) {
 		int i, j, k, m;
 		double temp;
 
@@ -182,7 +182,7 @@ public class ResolveEquacoes {
 			b[i] /= temp;
 			a[i][i] = 1.0 / temp;
 
-			// Reduz outras lihas pela subtração de um multiplo da linha atual.
+			// Reduz (para a matriz identidade) outras lihas pela subtração de um multiplo da linha atual.
 			// Não reduz a linha atual. Como cada coluna da matriz a[][] é
 			// reduzida os elementos são substituidos pela matriz inversa de
 			// a[][].
@@ -199,7 +199,8 @@ public class ResolveEquacoes {
 			}
 		}
 
-		
+		// Reordena a matriz inversa a[][]. As colunas são trocadas na ordem
+		// inversa que as linhas foram durante o pivoteamento.
 
 		for (j = qtdColunas - 1; j >= 0; --j) {
 			k = indice[j][0];
@@ -213,7 +214,7 @@ public class ResolveEquacoes {
 			}
 		}
 
-		return;
+		return b;
 	}
 
 }
